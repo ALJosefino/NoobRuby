@@ -9,3 +9,4 @@ p more_list[1]
 more_list << "Firmness"
 p ("Other way to input, use to name_of_list << 'Firmness' ")
 p more_list
+p ("Insert command on lists")
