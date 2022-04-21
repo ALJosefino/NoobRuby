@@ -19,3 +19,5 @@ puts hash3, hash4
 compare_hashes3_4 = hash3 == hash4
 
 puts compare_hashes3_4
+
+hash2.delete[:colours]
