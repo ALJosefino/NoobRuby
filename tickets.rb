@@ -62,12 +62,12 @@ end
 puts ("Today is  #{today}")
 
 puts ("Do you want manipulating #{today} to another weekday? yes or no") 
-change_today = gets.chomp
+change_today = gets.chomp.to_s
 
 while (change_today != "yes") and (change_today != "no") do
     puts ("Do you want manipulating #{today} to another weekday?") 
     puts ("Please type yes or no") 
-    change_today = gets.chomp
+    change_today = gets.chomp.to_s
 end
 
 if change_today == "yes"
@@ -159,7 +159,7 @@ puts ("What is customer birth day? Example: 10")
 customer_birth_day = gets.chomp.to_i
 
 puts ("Do you want change this customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}? yes or no?")
-change_customer_birthdate = gets.chomp
+change_customer_birthdate = gets.chomp.to_s
 
 while (change_customer_birthdate == "yes") do
 
@@ -190,3 +190,8 @@ end
 customer_years_old = age_in_years(customer_birth_day, customer_birth_month, customer_birth_year)
 
 puts ("Customer is #{customer_years_old} years old")
+
+puts ("What's customer name?")
+customer_name = gets.chomp.to_s
+
+puts ("Customer #{customer_name} was born #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year} todays is #{customer_years_old} years old")
