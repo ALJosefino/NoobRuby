@@ -61,16 +61,16 @@ end
 
 puts ("Today is  #{today}")
 
-puts ("Do you want manipulating #{today} to another weekday? Yes or No") 
+puts ("Do you want manipulating #{today} to another weekday? yes or no") 
 change_today = gets.chomp
 
-while (change_today != "Yes") and (change_today != "No") do
+while (change_today != "yes") and (change_today != "no") do
     puts ("Do you want manipulating #{today} to another weekday?") 
-    puts ("Please type Yes or No") 
+    puts ("Please type yes or no") 
     change_today = gets.chomp
 end
 
-if change_today == "Yes"
+if change_today == "yes"
     puts ("Yes was typed, so it's allowed change weekday now.")
     puts ("According to this:")
     puts ("Type number: O = today is sunday")
@@ -145,7 +145,7 @@ if change_today == "Yes"
                         puts ("So, now you choose that today is saturday")
                     end
 
-elsif change_today == "No"
+elsif change_today == "no"
 puts ("Weekday keeps on #{today}")
 end
 
@@ -158,11 +158,28 @@ customer_birth_month = gets.chomp.to_i
 puts ("What is customer birth day? Example: 10")
 customer_birth_day = gets.chomp.to_i
 
-puts ("Is this customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}?")
+puts ("Do you want change this customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}? yes or no?")
+change_customer_birthdate = gets.chomp
+
+while (change_customer_birthdate == "yes") do
+
+    puts ("What is customer birth year? Example: 1999")
+    customer_birth_year = gets.chomp.to_i
+
+    puts ("What is customer birth month? Example: 04 = April")
+    customer_birth_month = gets.chomp.to_i
+
+    puts ("What is customer birth day? Example: 10")
+    customer_birth_day = gets.chomp.to_i
+
+    puts ("Do you want change this customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}? yes or no?")
+    change_customer_birthdate = gets.chomp.to_s
+    
+end
 
 require 'date'
 
-def customer_years_old(day, month, year)   
+def age_in_years(day, month, year)   
  birthdate = Time.new(year, month, day)
  average_seconds_in_four_years = 31557600
  seconds = (Time.now - birthdate).to_i
@@ -170,4 +187,6 @@ def customer_years_old(day, month, year)
  years_old
 end
 
-puts customer_years_old(customer_birth_day, customer_birth_month, customer_birth_year)
+customer_years_old = age_in_years(customer_birth_day, customer_birth_month, customer_birth_year)
+
+puts ("Customer is #{customer_years_old} years old")
