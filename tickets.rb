@@ -195,3 +195,7 @@ puts ("What's customer name?")
 customer_name = gets.chomp.to_s
 
 puts ("Customer #{customer_name} was born #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year} todays is #{customer_years_old} years old")
+
+if customer_years_old <= 12
+    puts ("#{customer_name} is a kid")
+end
