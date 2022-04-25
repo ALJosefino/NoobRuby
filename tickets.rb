@@ -31,27 +31,20 @@ today = Time.new
 weekday = today.wday
 # case change a number to weekday specific
 case weekday
-when 0
-    #puts ("Today is Sunday")
-    today = "Sunday" 
-when 1
-    #puts ("Today is monday")
-    today = "Monday"
-when 2
-    #puts ("Today is tuesday")
-    today = "Tuesday"
-when 3
-    #puts ("Today is wednesday")
-    today = "Wednesday"
-when 4
-    #puts ("Today is thursday")
-    today = "Thursday"
-when 5
-    #puts ("Today is friday")
-    today = "Friday"
-when 6
-    #puts ("Today is saturday")
-    today = "Saturday"
+when 0 
+    today = "sunday" 
+when 1 
+    today = "monday"
+when 2 
+    today = "tuesday"
+when 3 
+    today = "wednesday"
+when 4 
+    today = "thursday"
+when 5 
+    today = "friday"
+when 6 
+    today = "saturday"
 end
 # From Time GEM it was defined a weekday 
 puts ("Today is  #{today}")
@@ -61,28 +54,30 @@ puts ("Do you want manipulating #{today} to another weekday? yes or no")
 change_today = gets.chomp.to_s
 ################################################################
 # Just two answers are acceptable, yes or no
-while 
-    (change_today != "yes") and (change_today != "no") do
-    puts ("Do you want manipulating #{today} to another weekday?") 
-    puts ("Please type yes or no") 
-    change_today = gets.chomp.to_s
+while (change_today != "yes") and (change_today != "no") do
+      puts ("Do you want manipulating #{today} to another weekday?") 
+      puts ("Please type yes or no") 
+      change_today = gets.chomp.to_s
 end
 ################################################################
 # Conditional if yes to change weekday, manipulating this information
-if 
- change_today == "yes"
+if change_today == "yes"
 # A menu to choose a number according weekday
-  puts ("Yes was typed, so it's allowed change weekday now.")
-  puts ("According to this:")
-  puts ("Type number: O = today is sunday")
-  puts ("Type number: 1 = today is monday")
-  puts ("Type number: 2 = today is tuesday")
-  puts ("Type number: 3 = today is wednesday")
-  puts ("Type number: 4 = today is thursday")
-  puts ("Type number: 5 = today is friday")
-  puts ("Type number: 6 = today is saturday")
+   puts ("Yes was typed, so it's allowed change weekday now.")
+   puts ("According to this:")
+   puts ("Type number: O = today is sunday")
+   puts ("Type number: 1 = today is monday")
+   puts ("Type number: 2 = today is tuesday")
+   puts ("Type number: 3 = today is wednesday")
+   puts ("Type number: 4 = today is thursday")
+   puts ("Type number: 5 = today is friday")
+   puts ("Type number: 6 = today is saturday")
 # First variable #{today} is used to change a integer number according to weekday menu
-  today = gets.chomp.to_i
+   today = gets.chomp.to_i
+    while (today < 0) and (today > 6) do
+        puts ("Please, type any number in zero to six answer is allowed only in this range")
+        today = gets.chomp.to_i
+    end
 # #{today} today in a select case when changing same first variable name of integer number, here storage a string data type
     case today
     when 0
@@ -126,7 +121,11 @@ if
         puts ("Type number: 6 = today is saturday")
 # #{today} to input an integer number inside a rage zero to six
         today = gets.chomp.to_i
-       end        
+            while (today < 0) and (today > 6) do
+            puts ("Please, type any number in zero to six answer is allowed only in this range")
+            today = gets.chomp.to_i
+            end
+       end
 end            
 # #{today} integer number convert to a string with weekday name
         case today
@@ -158,27 +157,83 @@ elsif
  puts ("Weekday keeps on #{today}")
 end
 ###############################################################
+# Weekends and holidays are in the same price off rule
+puts ("This #{today} is a holliday? Example: yes or no")
+holiday = gets.chomp.to_s
+while (holiday != "yes") and (holiday != "no") do
+puts ("Please, only one these two answeres are acceptable: yes or no")
+holiday = gets.chomp.to_s    
+end
+if holiday == "yes" 
+puts ("Ok, it's confirmed this #{today} is a holiday.")     
+holiday = true
+puts holiday
+elsif 
+holiday == "no"
+puts ("No, this #{today} it's not a holiday.")
+holiday = false  
+puts holiday
+end
+###############################################################
 # Important block to make date calculations from the birth date, separated by numbers
 puts ("What is customer birth year? Example: 1999")
 customer_birth_year = gets.chomp.to_i
+    
+    while (customer_birth_year > 1900) and (customer_birth_year < 2022) do
+        puts ("Since 1900 until 2022 Range of years allowed")
+        customer_birth_year = gets.chomp.to_i    
+    end
+
 puts ("What is customer birth month? Example: 04 = April")
 customer_birth_month = gets.chomp.to_i
+
+    while (customer_birth_month < 1) and (customer_birth_month > 12) do
+        puts ("Since 1 until 12 Range of months of year allowed")
+        customer_birth_month = gets.chomp.to_i    
+    end
+
 puts ("What is customer birth day? Example: 10")
 customer_birth_day = gets.chomp.to_i
+
+    while (customer_birth_day < 1) and (customer_birth_day > 31) do
+        puts ("Since 1 until 31 Range of days in a month allowed")
+        customer_birth_day = gets.chomp.to_i    
+    end
+
+
 # Show a short description on only one line typed numbers
 puts ("Do you want change this customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}? yes or no?")
 # Here it is a possibility to change a customer birthdate recently insert
 change_customer_birthdate = gets.chomp.to_s
-while 
- (change_customer_birthdate == "yes") do
- puts ("What is customer birth year? Example: 1999")
- customer_birth_year = gets.chomp.to_i
- puts ("What is customer birth month? Example: 04 = April")
- customer_birth_month = gets.chomp.to_i
- puts ("What is customer birth day? Example: 10")
- customer_birth_day = gets.chomp.to_i
- puts ("Do you want change this customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}? yes or no?")
- change_customer_birthdate = gets.chomp.to_s 
+    
+        while (change_customer_birthdate == "yes") do
+        
+        puts ("What is customer birth year? Example: 1999")
+        customer_birth_year = gets.chomp.to_i
+
+        while (customer_birth_year < 1900) and (customer_birth_year > 2022) do
+            puts ("Since 1900 until 2022 Range of years allowed")
+            customer_birth_year = gets.chomp.to_i    
+        end
+
+        puts ("What is customer birth month? Example: 04 = April")
+        customer_birth_month = gets.chomp.to_i
+
+        while (customer_birth_month < 1) and (customer_birth_month > 12) do
+            puts ("Since 1 until 12 Range of months of year allowed")
+            customer_birth_month = gets.chomp.to_i    
+        end
+
+        puts ("What is customer birth day? Example: 10")
+        customer_birth_day = gets.chomp.to_i
+
+        while (customer_birth_day < 1) and (customer_birth_day > 31) do
+            puts ("Since 1 until 31 Range of days in a month allowed")
+            customer_birth_day = gets.chomp.to_i    
+        end
+
+        puts ("Do you want change this customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}? yes or no?")
+        change_customer_birthdate = gets.chomp.to_s 
 end
 ################################################################
 # Converting seconds to years and calculating a number according to customer years old
@@ -200,44 +255,48 @@ puts ("Customer #{customer_name} was born #{customer_birth_day}/#{customer_birth
 ###############################################################
 # A rule that defined kind of customer according to the years old
 if
- customer_years_old <= 12
- #puts ("This is kid customer")
+ (customer_years_old <= 12)
  customer_kid = true
  customer_elderly = false
  customer_teenager_adult = false
+ puts ("Under or until twelve years old, it's classified kid")
 elsif
- customer_years_old >= 55
- #puts ("This is elderly customer")
+ (customer_years_old >= 55)
  customer_elderly = true
  customer_kid = false
  customer_teenager_adult = false
+ puts ("From fifty five years old or above, it's classified a elderly")
 elsif
- #puts ("teenager, young adult or adult")
+ (customer_years_old > 12) and (customer_years_old < 55)
  customer_teenager_adult = true
  customer_kid = false
  customer_elderly = false
+ puts ("This customer can be classified a teenager, young adult or adult")
 end
 ###############################################################
 # Another rule to restrict the age of customer students 
-if
- customer_years_old < 7
+if customer_years_old < 7
  puts ("This customer is too young to be a student.")
-elsif
- customer_years_old > 7
- puts ("Is this customer a student? Answer example: yes or no.")
+elsif customer_years_old > 7
+ puts ("Is #{customer_name} student? Answer example: yes or no.")
  customer_student = gets.chomp.to_s
-while
- (customer_student != "yes") and (customer_student != "no")
+while (customer_student != "yes") and (customer_student != "no")
  puts ("Please type yes or no, to confirm if a student")
  customer_student = gets.chomp.to_s
 end
-if
- customer_student == "yes"
+if customer_student == "yes"
  customer_student = true
-elsif
- customer_student == "no"
+elsif customer_student == "no"
  customer_student = false
 end
-##############################################################
 end
 puts customer_student
+##############################################################
+# It is just a menu to show price list after compare discounts
+puts (" This is price list ")
+puts (" Elderly:__US$ 6.00 ")
+puts (" Kids:_____US$ 5.50 ")
+puts (" Students:_US$ 8.00 ")
+puts (" Elderly above 55 years old")
+puts (" Kids under 12 years old")
+##############################################################
