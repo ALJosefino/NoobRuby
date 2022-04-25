@@ -197,5 +197,28 @@ customer_name = gets.chomp.to_s
 puts ("Customer #{customer_name} was born #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year} todays is #{customer_years_old} years old")
 
 if customer_years_old <= 12
-    puts ("#{customer_name} is a kid")
+    puts ("This is kid customer")
+    customer_kid = true
+    customer_elderly = false
+    customer_teenager_adult = false
+
+elsif customer_years_old >= 55
+    puts ("This is elderly customer")
+    customer_elderly = true
+    customer_kid = false
+    customer_teenager_adult = false
+
+elsif
+    puts ("teenager, young adult or adult")
+    customer_teenager_adult = true
+    customer_kid = false
+    customer_elderly = false
+end
+
+if customer_years_old < 7 
+    puts ("This customer is too young to be a student.")
+
+elsif customer_years_old > 7
+    puts ("Is this customer a student? Answer example: yes or no.")
+    customer_student = gets.chomp.to_s
 end
