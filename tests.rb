@@ -1,19 +1,7 @@
-puts ("This today is a holliday? Example: yes or no")
-holiday = gets.chomp.to_s
+puts ("From Zero to Ten only")
+range = gets.chomp.to_i
     
-    while (holiday != "yes") and (holiday != "no") do
-    puts ("Please, only one these two answeres are acceptable: yes or no")
-    holiday = gets.chomp.to_s    
+    while (range <= -1) or (range >= 11) do
+        puts ("A number between 0 and 10")
+        range = gets.chomp.to_i    
     end
-       
-        if holiday == "yes" 
-        puts ("Ok, it's confirmed this today is a holiday.")     
-        holiday = true
-        puts holiday
-        
-        elsif 
-        holiday == "no"
-        puts ("No, this today it's not a holiday.")
-        holiday = false  
-        puts holiday
-        end
