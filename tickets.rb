@@ -350,7 +350,10 @@ if (today == "wednesday") and (holiday == false) and (customer_elderly == true)
     elsif (today == "wednesday") and (holiday == false) and (customer_teenager_adult == true) and (customer_student == true)
     puts ("#{customer_name} is a teenager or a young adult or adult and also student so, pays 4.00 for a ticket on wednesdays")
 
-    elsif (today == "tuesday") and (holiday == true) and (customer_elderly == true) and (customer_student == false)
+    elsif (today == "wednesday") and (holiday == false) and (customer_teenager_adult == true) and (customer_student == false)
+    puts ("#{customer_name} is a teenager or young adult or adult and not a student so, no discounts")
+
+    elsif (today == "wednesday") and (holiday == true) and (customer_elderly == true) and (customer_student == false)
     puts ("#{customer_name} is a elderly, when is a holiday like this wednesday pays 5.70 for a ticket")
 
 end
@@ -389,7 +392,7 @@ if (today == "friday") and (holiday == false) and (customer_elderly == true)
 end
 
 ##############################################################
-# At weedends and holidays
+# At weekends and holidays
 
 if ((today == "saturday") or (today == "sunday") or (holiday == true)) and (customer_elderly == true)
     puts ("#{customer_name} is a elderly so, pays 5.70 for a ticket at weekends")
