@@ -57,10 +57,12 @@ when 6
 end
 # From Time GEM it was defined a weekday 
 puts ("Today is  #{today}")
+
 ################################################################
 # A way to change the weekday defined by GEM Time
 puts ("Do you want manipulating #{today} to another weekday? yes or no") 
 change_today = gets.chomp.to_s
+
 ################################################################
 # Just two answers are acceptable, yes or no
 while (change_today != "yes") and (change_today != "no") do
@@ -68,6 +70,7 @@ while (change_today != "yes") and (change_today != "no") do
       puts ("Please type yes or no") 
       change_today = gets.chomp.to_s
 end
+
 ################################################################
 # Conditional if yes to change weekday, manipulating this information
 if change_today == "yes"
@@ -81,6 +84,7 @@ if change_today == "yes"
    puts ("Type number: 4 = today is thursday")
    puts ("Type number: 5 = today is friday")
    puts ("Type number: 6 = today is saturday")
+
 # First variable #{today} is used to change a integer number according to weekday menu
    today = gets.chomp.to_i
     while (today < 0) and (today > 6) do
@@ -135,7 +139,8 @@ if change_today == "yes"
             today = gets.chomp.to_i
             end
        end
-end            
+end
+
 # #{today} integer number convert to a string with weekday name
         case today
         when 0
@@ -165,9 +170,10 @@ elsif
     change_today == "no"
     puts ("Weekday keeps on #{today}")
 end
+
 ###############################################################
 # Weekends and holidays are in the same price off rule
-puts ("This #{today} is a holliday? Example: yes or no")
+puts ("This #{today} is a holiday? Example: yes or no")
 holiday = gets.chomp.to_s
 
 while   (holiday != "yes") and (holiday != "no") do
@@ -178,12 +184,10 @@ end
 if  holiday == "yes" 
     puts ("Ok, it's confirmed this #{today} is a holiday.")     
     holiday = true
-    puts holiday
 elsif 
     holiday == "no"
     puts ("No, this #{today} it's not a holiday.")
     holiday = false  
-    puts holiday
 end
 
 ###############################################################
@@ -232,11 +236,11 @@ end
 ###############################################################
 
 customer_years_old = age_in_years(customer_birth_day, customer_birth_month, customer_birth_year)
-
 puts ("Customer is #{customer_years_old} years old")
-puts ("What's customer name?")
 
+puts ("What's customer name?")
 customer_name = gets.chomp.to_s
+
 puts ("Customer #{customer_name} was born #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year} todays is #{customer_years_old} years old")
 
 ###############################################################
@@ -286,27 +290,117 @@ elsif   customer_years_old > 7
         end
 end
 
-puts customer_student
-
 ##############################################################
 # It is just a menu to show price list after compare discounts
 
-puts (" This is price list ")
-puts (" Elderly:__US$ 6.00 ")
-puts (" Kids:_____US$ 5.50 ")
-puts (" Students:_US$ 8.00 ")
-puts (" Elderly above 55 years old")
-puts (" Kids under 12 years old")
+puts (" ______________________________")
+puts (" |    This is a price list    |")
+puts (" |      Elderly: US$ 6.00     |")
+puts (" |       Kids: US$ 5.50       |")
+puts (" |     Students:_US$ 8.00     |")
+puts (" | Elderly above 55 years old |")
+puts (" |   Kids under 12 years old  |")
+puts (" |____________________________|")
 
 ##############################################################
-puts today
+# On mondays and holidays
 
-if (today == "monday") and (customer_elderly == true)
-    puts ("elderly pay 5.40 for a ticket")
+if (today == "monday") and (holiday == false) and (customer_elderly == true)
+    puts ("#{customer_name} is a elderly so, pays 5.40 for a ticket")
 
-    elsif (today == "monday") and (customer_kid == true)
-        puts ("kids pay 4.95 for a ticket")
+    elsif (today == "monday") and (holiday == false) and (customer_kid == true)
+        puts ("#{customer_name} is a kids so, pays 4.95 for a ticket")
 
-    elsif (today == "monday") and (customer_teenager_adult == true) and (customer_student == true)
-        puts ("teenager, young adult, adult students pay 7.20 for a ticket")
+    elsif (today == "monday") and (holiday == false) and (customer_teenager_adult == true) and (customer_student == true)
+        puts ("#{customer_name} is a teenager or a young adult or adult and also student so, pays 7.20 for a ticket")
+    
+    elsif (today == "monday") and (holiday == false) and (customer_teenager_adult == true) and (customer_student == false)
+        puts ("#{customer_name} is a teenager or young adult or adult and not a student so, no discounts")
+    
+    elsif (today == "monday") and (holiday == true) and (customer_elderly == true) and (customer_student == false)
+        puts ("#{customer_name} is a elderly, when is a holiday like this monday pays 5.7 for a ticket")
+end
+
+##############################################################
+# On tuesdays and holidays
+
+if (today == "tuesday") and (holiday == false) and (customer_elderly == true)
+    puts ("#{customer_name} is a elderly so, pays 5.10 for a ticket on tuesdays")
+
+    elsif (today == "tuesday") and (holiday == false) and (customer_kid == true)
+    puts ("#{customer_name} is a kid so, pays 4.68 for a ticket on tuesdays")
+
+    elsif (today == "tuesday") and (holiday == false) and (customer_teenager_adult == true) and (customer_student == true)
+    puts ("#{customer_name} is a teenager or a young adult or adult and also student so, pays 7.60 for a ticket on tuesdays")
+
+    elsif (today == "tuesday") and (holiday == true) and (customer_elderly == true) and (customer_student == false)
+    puts ("#{customer_name} is a elderly, when is a holiday like this tuesday pays 5.7 for a ticket")
+
+end
+
+##############################################################
+# On wednesdays and holidays
+
+if (today == "wednesday") and (holiday == false) and (customer_elderly == true)
+    puts ("#{customer_name} is a elderly so, pays 3.6 for a ticket on wednesdays")
+
+    elsif (today == "wednesday") and (holiday == false) and (customer_kid == true)
+    puts ("#{customer_name} is a kid so, pays 3.85 for a ticket on wednesdays")
+
+    elsif (today == "wednesday") and (holiday == false) and (customer_teenager_adult == true) and (customer_student == true)
+    puts ("#{customer_name} is a teenager or a young adult or adult and also student so, pays 4.00 for a ticket on wednesdays")
+
+    elsif (today == "tuesday") and (holiday == true) and (customer_elderly == true) and (customer_student == false)
+    puts ("#{customer_name} is a elderly, when is a holiday like this wednesday pays 5.70 for a ticket")
+
+end
+
+##############################################################
+# On thursdays and holidays
+
+if (today == "thursday") and (holiday == false) and (customer_elderly == true)
+    puts ("#{customer_name} is a elderly so, pays 4.20 for a ticket on thursdays")
+
+    elsif (today == "thursday") and (holiday == false) and (customer_kid == true)
+        puts ("#{customer_name} is a kid so, pays 3.85 for a ticket on thursdays")
+
+    elsif (today == "thursday") and (holiday == false) and (customer_teenager_adult == true) and (customer_student == false)
+        puts ("#{customer_name} is a teenager or young adult or adult and not a student so, no discounts")
+
+    elsif (today == "thursday") and (holiday == true) and (customer_elderly == true) and (customer_student == false)
+        puts ("#{customer_name} is a elderly, when is a holiday like this wednesday pays 5.70 for a ticket")
+end
+
+##############################################################
+# On fridays and holidays
+
+if (today == "friday") and (holiday == false) and (customer_elderly == true)
+    puts ("#{customer_name} is a elderly so, no discounts on fridays, holiday is exception")
+
+    elsif (today == "friday") and (holiday == false) and (customer_kid == true)
+    puts ("#{customer_name} is a kid so, pays 4.90 for a ticket on fridays")
+
+    elsif (today == "friday") and (holiday == false) and (customer_teenager_adult == true) and (customer_student == false)
+        puts ("#{customer_name} is a teenager or young adult or adult and not a student so, no discounts on fridays")
+
+    elsif (today == "thursday") and (holiday == true) and (customer_elderly == true) and (customer_student == false)
+        puts ("#{customer_name} is a elderly, when is a holiday like this friday pays 5.70 for a ticket")
+
+end
+
+##############################################################
+# At weedends and holidays
+
+if ((today == "saturday") or (today == "sunday") or (holiday == true)) and (customer_elderly == true)
+    puts ("#{customer_name} is a elderly so, pays 5.70 for a ticket at weekends")
+
+    elsif((today == "saturday") or (today == "sunday")) and (holiday == false) and (customer_kid == true)
+    puts ("#{customer_name} is a kid so, no discounts at weekends and on holidays")
+
+    elsif ((today == "saturday") or (today == "sunday")) and (holiday == false) and (customer_teenager_adult == true) and (customer_student == false)
+    puts ("#{customer_name} is a teenager or young adult or adult and not a student so, no discounts at weekends and on holidays")
+  
+    elsif ((today == "saturday") or (today == "sunday")) and (holiday == false) and (customer_teenager_adult == true) and (customer_student == true)
+    puts ("#{customer_name} is a teenager or young adult or adult and a student so, anyway at weekends and on holidays, no discounts")
+
 end
