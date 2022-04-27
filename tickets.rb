@@ -1,25 +1,34 @@
 # Description of this chalange
 # https://github.com/centeno/FirstApisulCodingDojo/blob/master/problem.txt
+
 # These are price of tickets to:
 # elderly: US$ 6.00
 # kids: US$ 5.50
 # students: US$ 8.00
+
 # Every day in a week it's price off, each day change for specific target public
+
 # On Monday:
 # elderly, kids, students: 10% off
+
 # On Tuesday:
 # elderly and kids: 15% off
 # students: 5% off 
+
 # On Wednesday:
 # elderly: 40% off
 # kids: 30% off
 # students: 50% off
+
 # On Thursday:
 # elderly and kids: 30% off
+
 # On Friday
 # kids: 11% off
+
 # On Saturday, Sunday and Holliday:
 # elderly: 5% off
+
 # This briefing was copied unashamed manner from @dwildt
 ################################################################
 # Presentation of the programming
@@ -81,25 +90,25 @@ if change_today == "yes"
 # #{today} today in a select case when changing same first variable name of integer number, here storage a string data type
     case today
     when 0
-     today = "Sunday" 
+     today = "sunday" 
      puts ("So, now you choose that today is sunday")
     when 1
-     today = "Monday"
+     today = "monday"
      puts ("So, now you choose that today is monday")
     when 2
-     today = "Tuesday"
+     today = "tuesday"
      puts ("So, now you choose that today is tuesday")
     when 3
-     today = "Wednesday"
+     today = "wednesday"
      puts ("So, now you choose that today is wednesday")
     when 4
-     today = "Thursday"
+     today = "thursday"
      puts ("So, now you choose that today is thursday")
     when 5
-     today = "Friday"
+     today = "friday"
      puts ("So, now you choose that today is friday")
     when 6
-     today = "Saturday"
+     today = "saturday"
      puts ("So, now you choose that today is saturday")
     else 
 # Only seven days in a week, so if different from zero to six will be refused until validate
@@ -130,25 +139,25 @@ end
 # #{today} integer number convert to a string with weekday name
         case today
         when 0
-         today = "Sunday" 
+         today = "sunday" 
          puts ("So, now you choose that today is sunday")
         when 1
-         today = "Monday"
+         today = "monday"
          puts ("So, now you choose that today is monday")
         when 2
-         today = "Tuesday"
+         today = "tuesday"
          puts ("So, now you choose that today is tuesday")
         when 3
-         today = "Wednesday"
+         today = "wednesday"
          puts ("So, now you choose that today is wednesday")
         when 4
-         today = "Thursday"
+         today = "thursday"
          puts ("So, now you choose that today is thursday")
         when 5
-         today = "Friday"
+         today = "friday"
          puts ("So, now you choose that today is friday")
         when 6
-         today = "Saturday"
+         today = "saturday"
          puts ("So, now you choose that today is saturday")
         end
 elsif 
@@ -290,3 +299,14 @@ puts (" Elderly above 55 years old")
 puts (" Kids under 12 years old")
 
 ##############################################################
+puts today
+
+if (today == "monday") and (customer_elderly == true)
+    puts ("elderly pay 5.40 for a ticket")
+
+    elsif (today == "monday") and (customer_kid == true)
+        puts ("kids pay 4.95 for a ticket")
+
+    elsif (today == "monday") and (customer_teenager_adult == true) and (customer_student == true)
+        puts ("teenager, young adult, adult students pay 7.20 for a ticket")
+end
