@@ -152,151 +152,141 @@ end
          puts ("So, now you choose that today is saturday")
         end
 elsif 
-# Keeps the weekday insert by first data from Time.new Class
- change_today == "no"
- puts ("Weekday keeps on #{today}")
+    # Keeps the weekday insert by first data from Time.new Class
+    change_today == "no"
+    puts ("Weekday keeps on #{today}")
 end
 ###############################################################
 # Weekends and holidays are in the same price off rule
 puts ("This #{today} is a holliday? Example: yes or no")
 holiday = gets.chomp.to_s
-while (holiday != "yes") and (holiday != "no") do
-puts ("Please, only one these two answeres are acceptable: yes or no")
-holiday = gets.chomp.to_s    
+
+while   (holiday != "yes") and (holiday != "no") do
+        puts ("Please, only one these two answeres are acceptable: yes or no")
+        holiday = gets.chomp.to_s    
 end
-if holiday == "yes" 
-puts ("Ok, it's confirmed this #{today} is a holiday.")     
-holiday = true
-puts holiday
+
+if  holiday == "yes" 
+    puts ("Ok, it's confirmed this #{today} is a holiday.")     
+    holiday = true
+    puts holiday
 elsif 
-holiday == "no"
-puts ("No, this #{today} it's not a holiday.")
-holiday = false  
-puts holiday
+    holiday == "no"
+    puts ("No, this #{today} it's not a holiday.")
+    holiday = false  
+    puts holiday
 end
+
 ###############################################################
 # Important block to make date calculations from the birth date, separated by numbers
-puts ("What is customer birth year? Example: 1999")
+
+puts ("What is customer birth year? Example: 1988")
 customer_birth_year = gets.chomp.to_i
     
-    while (customer_birth_year > 1900) and (customer_birth_year < 2022) do
-        puts ("Since 1900 until 2022 Range of years allowed")
-        customer_birth_year = gets.chomp.to_i    
-    end
+while   (customer_birth_year < 1900) or (customer_birth_year > 2022) do
+        puts ("Since 1900 until 2022 range of years allowed")
+        customer_birth_year = gets.chomp.to_i
+end
 
 puts ("What is customer birth month? Example: 04 = April")
 customer_birth_month = gets.chomp.to_i
 
-    while (customer_birth_month < 1) and (customer_birth_month > 12) do
-        puts ("Since 1 until 12 Range of months of year allowed")
-        customer_birth_month = gets.chomp.to_i    
-    end
+while   (customer_birth_month < 1) or (customer_birth_month > 12) do
+        puts ("Since 1 until 12 range of months of year allowed")
+        customer_birth_month = gets.chomp.to_i
+end
 
-puts ("What is customer birth day? Example: 10")
+puts ("What is customer birth day? Example: 18")
 customer_birth_day = gets.chomp.to_i
 
-    while (customer_birth_day < 1) and (customer_birth_day > 31) do
-        puts ("Since 1 until 31 Range of days in a month allowed")
-        customer_birth_day = gets.chomp.to_i    
-    end
-
-
-# Show a short description on only one line typed numbers
-puts ("Do you want change this customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}? yes or no?")
-# Here it is a possibility to change a customer birthdate recently insert
-change_customer_birthdate = gets.chomp.to_s
-    
-        while (change_customer_birthdate == "yes") do
-        
-        puts ("What is customer birth year? Example: 1999")
-        customer_birth_year = gets.chomp.to_i
-
-        while (customer_birth_year < 1900) and (customer_birth_year > 2022) do
-            puts ("Since 1900 until 2022 Range of years allowed")
-            customer_birth_year = gets.chomp.to_i    
-        end
-
-        puts ("What is customer birth month? Example: 04 = April")
-        customer_birth_month = gets.chomp.to_i
-
-        while (customer_birth_month < 1) and (customer_birth_month > 12) do
-            puts ("Since 1 until 12 Range of months of year allowed")
-            customer_birth_month = gets.chomp.to_i    
-        end
-
-        puts ("What is customer birth day? Example: 10")
+while   (customer_birth_day < 1) or (customer_birth_day > 31) do
+        puts ("Since 1 until 31 range of days in a month allowed")
         customer_birth_day = gets.chomp.to_i
-
-        while (customer_birth_day < 1) and (customer_birth_day > 31) do
-            puts ("Since 1 until 31 Range of days in a month allowed")
-            customer_birth_day = gets.chomp.to_i    
-        end
-
-        puts ("Do you want change this customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}? yes or no?")
-        change_customer_birthdate = gets.chomp.to_s 
 end
+
+puts ("This is customer birthdate #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year}")
+
 ################################################################
 # Converting seconds to years and calculating a number according to customer years old
+
 require 'date'
+
 def 
- age_in_years(day, month, year)   
- birthdate = Time.new(year, month, day)
- average_seconds_in_four_years = 31557600
- seconds = (Time.now - birthdate).to_i
- years_old = seconds / average_seconds_in_four_years
- years_old
+    age_in_years(day, month, year)   
+    birthdate = Time.new(year, month, day)
+    average_seconds_in_four_years = 31557600
+    seconds = (Time.now - birthdate).to_i
+    years_old = seconds / average_seconds_in_four_years
+    years_old
 end
+
 ###############################################################
+
 customer_years_old = age_in_years(customer_birth_day, customer_birth_month, customer_birth_year)
+
 puts ("Customer is #{customer_years_old} years old")
 puts ("What's customer name?")
+
 customer_name = gets.chomp.to_s
 puts ("Customer #{customer_name} was born #{customer_birth_day}/#{customer_birth_month}/#{customer_birth_year} todays is #{customer_years_old} years old")
+
 ###############################################################
 # A rule that defined kind of customer according to the years old
+
 if
- (customer_years_old <= 12)
- customer_kid = true
- customer_elderly = false
- customer_teenager_adult = false
- puts ("Under or until twelve years old, it's classified kid")
-elsif
- (customer_years_old >= 55)
- customer_elderly = true
- customer_kid = false
- customer_teenager_adult = false
- puts ("From fifty five years old or above, it's classified a elderly")
-elsif
- (customer_years_old > 12) and (customer_years_old < 55)
- customer_teenager_adult = true
- customer_kid = false
- customer_elderly = false
- puts ("This customer can be classified a teenager, young adult or adult")
+    (customer_years_old <= 12)
+    customer_kid = true
+    customer_elderly = false
+    customer_teenager_adult = false
+    puts ("Under or until twelve years old, it's classified kid")
+    
+    elsif
+        (customer_years_old >= 55)
+        customer_elderly = true
+        customer_kid = false
+        customer_teenager_adult = false
+        puts ("From fifty five years old or above, it's classified a elderly")
+    elsif
+        (customer_years_old > 12) and (customer_years_old < 55)
+        customer_teenager_adult = true
+        customer_kid = false
+        customer_elderly = false
+        puts ("This customer can be classified a teenager, young adult or adult")
 end
+
 ###############################################################
 # Another rule to restrict the age of customer students 
-if customer_years_old < 7
- puts ("This customer is too young to be a student.")
-elsif customer_years_old > 7
- puts ("Is #{customer_name} student? Answer example: yes or no.")
- customer_student = gets.chomp.to_s
-while (customer_student != "yes") and (customer_student != "no")
- puts ("Please type yes or no, to confirm if a student")
- customer_student = gets.chomp.to_s
+
+if      customer_years_old < 7
+        puts ("This customer is too young to be a student.")
+
+elsif   customer_years_old > 7
+        puts ("Is #{customer_name} student? Answer example: yes or no.")
+        customer_student = gets.chomp.to_s
+    
+        while   (customer_student != "yes") and (customer_student != "no") do
+                puts ("Please type yes or no, to confirm if a student")
+                customer_student = gets.chomp.to_s
+        end
+
+        if      customer_student == "yes"
+                customer_student = true
+        
+        elsif   customer_student == "no"
+                customer_student = false
+        end
 end
-if customer_student == "yes"
- customer_student = true
-elsif customer_student == "no"
- customer_student = false
-end
-end
+
 puts customer_student
+
 ##############################################################
 # It is just a menu to show price list after compare discounts
+
 puts (" This is price list ")
 puts (" Elderly:__US$ 6.00 ")
 puts (" Kids:_____US$ 5.50 ")
 puts (" Students:_US$ 8.00 ")
 puts (" Elderly above 55 years old")
 puts (" Kids under 12 years old")
+
 ##############################################################
