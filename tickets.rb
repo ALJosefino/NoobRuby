@@ -173,6 +173,7 @@ end
 
 ###############################################################
 # Weekends and holidays are in the same price off rule
+
 puts ("This #{today} is a holiday? Example: yes or no")
 holiday = gets.chomp.to_s
 
@@ -191,7 +192,7 @@ elsif
 end
 
 ###############################################################
-# Important block to make date calculations from the birth date, separated by numbers
+# An important block of code to make date calculations from the birth date, separated by numbers
 
 puts ("What is customer birth year? Example: 1988")
 customer_birth_year = gets.chomp.to_i
